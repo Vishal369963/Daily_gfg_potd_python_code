@@ -1,0 +1,13 @@
+class Solution:
+    def helpp(self,res,zero,one,temp,n):
+	        if len(temp)==n:
+	            res.append(temp)
+	            return 
+	        if one>zero:
+	            self.helpp(res,zero+1,one,temp+'0',n)
+	        self.helpp(res,zero,one+1,temp+'1',n)
+	def NBitBinary(self, n):
+	    res=[]
+	    self.helpp(res,0,1,"1",n)
+	    res.sort(reverse=True)
+	    return res
