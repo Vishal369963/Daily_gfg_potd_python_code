@@ -1,0 +1,22 @@
+class Solution:
+    def isAdditiveSequence(self, n):
+        n1=len(n)
+        for i in range(n1):
+            for j in range(i+1,n1):
+                s,e=n[:i+1],n[i+1:j+1]
+                ind=j+1
+                re=str(int(s)+int(e))
+                le=len(re)
+                # if(ind==2):
+                #     print(s,e,re,st[ind:ind+le])
+                while(re==n[ind:ind+le]):
+                    s,e=e,re
+                    ind+=le
+                    re=str(int(s)+int(e))
+                    le=len(re)
+                    # print(s,e,re,st[ind:ind+le],ind,22222)
+                    if(ind==len(n)):
+                        return(1)
+                    elif(ind>len(n)):
+                        break
+        return(0)
